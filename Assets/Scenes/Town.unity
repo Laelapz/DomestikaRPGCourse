@@ -4699,12 +4699,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7758887738551886783, guid: a809c1f79aa404344a06f1b7b555c363, type: 3}
       propertyPath: sceneDependencies.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7758887738551886783, guid: a809c1f79aa404344a06f1b7b555c363, type: 3}
       propertyPath: sceneDependencies.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: 9bfc3b8d833890e4eb15a0d80d486794, type: 2}
+    - target: {fileID: 7758887738551886783, guid: a809c1f79aa404344a06f1b7b555c363, type: 3}
+      propertyPath: sceneDependencies.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: cced804549bfa5045bcfe507009858c3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a809c1f79aa404344a06f1b7b555c363, type: 3}
 --- !u!1 &1391166918

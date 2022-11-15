@@ -212,6 +212,7 @@ GameObject:
   - component: {fileID: 432226687}
   - component: {fileID: 432226691}
   - component: {fileID: 432226690}
+  - component: {fileID: 432226692}
   m_Layer: 0
   m_Name: SceneLoaderManager
   m_TagString: Untagged
@@ -312,6 +313,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 432226692}
+        m_TargetAssemblyTypeName: GameStateChanger, Assembly-CSharp
+        m_MethodName: SetGameState
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 4843c27b499c8294c84eb59426a1cf2e, type: 2}
+          m_ObjectArgumentAssemblyTypeName: GameStateSO, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _debugValue:
     scene: {fileID: 0}
     loadingScreen: 0
@@ -347,9 +360,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 432226692}
+        m_TargetAssemblyTypeName: GameStateChanger, Assembly-CSharp
+        m_MethodName: SetGameState
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 4843c27b499c8294c84eb59426a1cf2e, type: 2}
+          m_ObjectArgumentAssemblyTypeName: GameStateSO, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _debugValue:
     scene: {fileID: 0}
     loadingScreen: 0
+--- !u!114 &432226692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432226686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6a16e24220684940a248ddc06fa0e8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 11400000, guid: cd7dc0309b2164f43ab6ca01aa690344, type: 2}
 --- !u!1 &901479410
 GameObject:
   m_ObjectHideFlags: 0

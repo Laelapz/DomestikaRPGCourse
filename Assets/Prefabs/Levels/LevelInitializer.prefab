@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 7758887738551886782}
   - component: {fileID: 7758887738551886783}
   - component: {fileID: 7758887738551886780}
+  - component: {fileID: 4617111947698175274}
   m_Layer: 0
   m_Name: LevelInitializer
   m_TagString: Untagged
@@ -94,6 +95,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4617111947698175274}
+        m_TargetAssemblyTypeName: GameStateChanger, Assembly-CSharp
+        m_MethodName: SetGameState
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 65c58f7a885c0c849baeb919910c029a, type: 2}
+          m_ObjectArgumentAssemblyTypeName: GameStateSO, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7758887738551886780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,3 +123,16 @@ MonoBehaviour:
   playerPrefab: {fileID: 5473000901053462063, guid: edd14711152ec6b428a61570a88346e3, type: 3}
   followCamera: {fileID: 0}
   playerParent: {fileID: 0}
+--- !u!114 &4617111947698175274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7758887738551886781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6a16e24220684940a248ddc06fa0e8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 11400000, guid: cd7dc0309b2164f43ab6ca01aa690344, type: 2}

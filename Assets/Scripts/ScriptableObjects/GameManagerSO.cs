@@ -16,13 +16,13 @@ public class GameManagerSO : ScriptableObject
         if (this.currentState != null)
         {
             this._previousState = currentState;
+        }
 
-            this.currentState = gameState;
+        this.currentState = gameState;
 
-            if(this.currentState != null)
-            {
-                gameStateChanged.Raise(gameState);
-            }
+        if(this.currentState != null)
+        {
+            gameStateChanged.Raise(gameState);
         }
     }
 

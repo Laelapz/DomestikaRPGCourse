@@ -56,7 +56,6 @@ public class SceneLoadManager : MonoBehaviour
 
     IEnumerator ProcessLevelLoading(LoadSceneRequest request)
     {
-        print(request.scene);
         if (request.scene != null)
         {
             var currentLoadedLevel = SceneManager.GetActiveScene();
@@ -75,7 +74,6 @@ public class SceneLoadManager : MonoBehaviour
     private void ActivateLevel(LoadSceneRequest request)
     {
         var loadedLevel = SceneManager.GetSceneByName(request.scene.SceneName);
-        print(loadedLevel.name);
         SceneManager.SetActiveScene(loadedLevel);
 
         if (request.loadingScreen)

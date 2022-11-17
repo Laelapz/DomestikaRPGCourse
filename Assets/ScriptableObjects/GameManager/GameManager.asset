@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: GameManager
   m_EditorClassIdentifier: 
   currentState: {fileID: 0}
+  gameStateChanged: {fileID: 11400000, guid: a2ca4893205b5444e96ea674d329c230, type: 2}

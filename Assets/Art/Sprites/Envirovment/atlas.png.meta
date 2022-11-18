@@ -3330,10 +3330,10 @@ TextureImporter:
       name: atlas_151
       rect:
         serializedVersion: 2
-        x: 304
+        x: 288
         y: 368
-        width: 16
-        height: 16
+        width: 32
+        height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4359,10 +4359,10 @@ TextureImporter:
       name: atlas_200
       rect:
         serializedVersion: 2
-        x: 448
+        x: 432
         y: 336
-        width: 16
-        height: 16
+        width: 32
+        height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5325,10 +5325,10 @@ TextureImporter:
       name: atlas_246
       rect:
         serializedVersion: 2
-        x: 448
+        x: 432
         y: 304
-        width: 16
-        height: 16
+        width: 32
+        height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -14855,6 +14855,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: atlas_700
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 367
+        width: 32
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9d402f8f67539c4b89d68e9a4c53a92
+      internalID: -200871392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -15026,6 +15047,7 @@ TextureImporter:
       atlas_334: 185774594
       atlas_491: 1594179432
       atlas_263: -1903441636
+      atlas_700: -200871392
       atlas_274: -679779160
       atlas_364: 95525061
       atlas_632: -567542333
@@ -15220,11 +15242,11 @@ TextureImporter:
       atlas_174: -1884171113
       atlas_433: -870504672
       atlas_627: -1557389258
-      atlas_21: 1126585249
       atlas_1: -635094290
-      atlas_319: 954386622
-      atlas_647: -1292027696
       atlas_352: -589215086
+      atlas_647: -1292027696
+      atlas_21: 1126585249
+      atlas_319: 954386622
       atlas_667: -4436213
       atlas_266: -2597495
       atlas_237: -1715990131

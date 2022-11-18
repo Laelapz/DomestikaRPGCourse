@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b10faff4107a8ff4e98bb6f9b8fa09c0, type: 3}
+  m_Name: Gabe&Sensei
+  m_EditorClassIdentifier: 
+  leftCharacter: {fileID: 11400000, guid: 4c18cf5bf238c9d428fbab4bd8a755cb, type: 2}
+  rightCharacter: {fileID: 11400000, guid: 38644163dc0229c4ca3ac7f03daf1a99, type: 2}
+  sentences:
+  - character: {fileID: 11400000, guid: 4c18cf5bf238c9d428fbab4bd8a755cb, type: 2}
+    text: Hi Sensei...
+  - character: {fileID: 11400000, guid: 38644163dc0229c4ca3ac7f03daf1a99, type: 2}
+    text: Hello Gabe, so it's finally the time right?
+  - character: {fileID: 11400000, guid: 38644163dc0229c4ca3ac7f03daf1a99, type: 2}
+    text: I supose that i can't stop you...
+  - character: {fileID: 11400000, guid: 4c18cf5bf238c9d428fbab4bd8a755cb, type: 2}
+    text: No, it's my destiny, i have to go.
+  - character: {fileID: 11400000, guid: 38644163dc0229c4ca3ac7f03daf1a99, type: 2}
+    text: Ok, ok...
+  - character: {fileID: 11400000, guid: 38644163dc0229c4ca3ac7f03daf1a99, type: 2}
+    text: Anyway, it's dangerous to go alone! Take this sword
+  - character: {fileID: 11400000, guid: 4c18cf5bf238c9d428fbab4bd8a755cb, type: 2}
+    text: Thank you Sensei, wish me luck.

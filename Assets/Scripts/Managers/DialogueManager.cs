@@ -4,10 +4,10 @@ using UnityEngine.Events;
 
 public class DialogueManager : MonoBehaviour
 {
-    public DialogueUI dialogueUI;
+    [SerializeField] private DialogueUI dialogueUI;
 
-    public UnityEvent onConversationStarted;
-    public UnityEvent onConversationEnded;
+    [SerializeField] private UnityEvent onConversationStarted;
+    [SerializeField] private UnityEvent onConversationEnded;
 
     private Queue<Sentence> sentences;
 

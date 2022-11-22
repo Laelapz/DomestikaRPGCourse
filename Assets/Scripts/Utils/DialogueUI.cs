@@ -6,19 +6,19 @@ using UnityEngine.UI;
 public class DialogueUI : MonoBehaviour
 {
     [Header("Configuration")]
-    public float textSpeed;
+    [SerializeField] private float textSpeed;
 
     [Header("Dependencies")]
-    public GameObject ui;
+    [SerializeField] private GameObject ui;
 
-    public GameObject leftCharacter;
-    public GameObject rightCharacter;
+    [SerializeField] private GameObject leftCharacter;
+    [SerializeField] private GameObject rightCharacter;
 
-    public TextMeshProUGUI leftCharacterName;
-    public Image leftCharacterPortrait;
-    public TextMeshProUGUI rightCharacterName;
-    public Image rightCharacterPortrait;
-    public TextMeshProUGUI dialogueBox;
+    [SerializeField] private TextMeshProUGUI leftCharacterName;
+    [SerializeField] private Image leftCharacterPortrait;
+    [SerializeField] private TextMeshProUGUI rightCharacterName;
+    [SerializeField] private Image rightCharacterPortrait;
+    [SerializeField] private TextMeshProUGUI dialogueBox;
 
     private string _currenteSentence;
 

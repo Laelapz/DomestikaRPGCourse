@@ -4,10 +4,10 @@ using UnityEngine;
 public class PlayerInteraction : MonoBehaviour
 {
     [Header("Configurations")]
-    public string interactableTag;
+    [SerializeField] private string interactableTag;
 
     [Header("Broadcasting Events")]
-    public BoolGameEvent interactionRequestEvent;
+    [SerializeField] private BoolGameEvent interactionRequestEvent;
 
     private Interactable _interactable;
 

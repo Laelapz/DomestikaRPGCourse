@@ -19,6 +19,7 @@ public class GameStateListener : MonoBehaviour
     public UnityEvent onPlayingState;
     public UnityEvent onPauseState;
     public UnityEvent onDialogueState;
+    public UnityEvent onCombatState;
 
     private void OnEnable()
     {
@@ -78,5 +79,11 @@ public class GameStateListener : MonoBehaviour
         {
             this.onDialogueState.Invoke();
         }
+
+        if (newGameState.stateName == "Combat" && this.onCombatState != null)
+        {
+            this.onCombatState.Invoke();
+        }
+
     }
 }

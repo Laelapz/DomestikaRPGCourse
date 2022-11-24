@@ -3,12 +3,11 @@ using UnityEngine;
 [System.Serializable]
 public class CombatRequest
 {
-    [SerializeField] private CombatUnitSO player;
-    [SerializeField] private Transform playerPosition;
+    public CombatUnitSO player;
+    public Transform playerPosition;
 
-
-    [SerializeField] private CombatUnitSO[] enemies;
-    [SerializeField] private Transform enemyPosition;
+    public CombatUnitSO[] enemies;
+    public Transform enemyPosition;
 
     public CombatRequest(CombatUnitSO player, Transform playerPosition, CombatUnitSO[] enemies, Transform enemyPosition)
     {

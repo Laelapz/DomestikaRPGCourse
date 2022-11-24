@@ -45,11 +45,25 @@ public class CombatUI : MonoBehaviour
         this._infoText.text = infoText;
     }
 
+    public void ShowCombatMenu()
+    {
+        this._wonMenu.SetActive(false);
+        this._lostMenu.SetActive(false);
+        this._combatMenu.SetActive(true);
+    }
+
     public void ShowWonMenu(int earnedGold)
     {
         this._earnedGoldText.text = earnedGold.ToString();
         this._wonMenu.SetActive(true);
         this._lostMenu.SetActive(false);
+        this._combatMenu.SetActive(false);
+    }
+
+    public void ShowLostMenu()
+    {
+        this._wonMenu.SetActive(false);
+        this._lostMenu.SetActive(true);
         this._combatMenu.SetActive(false);
     }
 

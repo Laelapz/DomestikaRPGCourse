@@ -1,4 +1,5 @@
 using UnityEngine;
+using ScriptableObjectArchitecture;
 
 public class CombatTrigger : MonoBehaviour
 {
@@ -9,14 +10,13 @@ public class CombatTrigger : MonoBehaviour
     [SerializeField] private CombatUnitSO[] enemies;
     [SerializeField] private Transform enemyPosition;
 
-    //Emitir evento do combat request
-    //[Header("Broadcasting Events")]
-    //public CombatRequestGameEvent combatRequestEvent;
+    [Header("Broadcasting Events")]
+    public CombatRequestGameEvent combatRequestEvent;
 
     public void TriggerCombat()
     {
         var combatRequest = new CombatRequest(player, playerPosition, enemies, enemyPosition);
 
-        //this.combatRequestEvent.Raise(combatRequest);
+        this.combatRequestEvent.Raise(combatRequest);
     }
 }

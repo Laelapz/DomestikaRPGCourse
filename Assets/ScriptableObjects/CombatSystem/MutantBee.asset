@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: MutantBee
   m_EditorClassIdentifier: 
   unitName: MutantBee
-  baseHP: 50
-  maxHP: 50
-  currentHP: 50
-  attackPower: 15
-  healingPower: 20
+  baseHP: 60
+  maxHP: 60
+  currentHP: 25
   unitPrefab: {fileID: 3247780550155709869, guid: 5fafd5e86e7d893418efa4fdc76ffb49, type: 3}
+  inventory: {fileID: 11400000, guid: dac8ef7fac4d9e947b381f68c54a24fb, type: 2}

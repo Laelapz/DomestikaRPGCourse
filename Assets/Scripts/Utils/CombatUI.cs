@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,6 +15,14 @@ public class CombatUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _goldText;
     [SerializeField] private TextMeshProUGUI _earnedGoldText;
 
+    [SerializeField] private Image firstWeaponImage;
+    [SerializeField] private Image secondWeaponImage;
+
+    [SerializeField] private Image firstConsumableImage;
+    [SerializeField] private TextMeshProUGUI firstConsumableAmountText;
+    [SerializeField] private Image secondConsumableImage;
+    [SerializeField] private TextMeshProUGUI secondConsumableAmountText;
+
     [SerializeField] private TextMeshProUGUI _playerName;
     [SerializeField] private Slider _playerHP;
     [SerializeField] private TextMeshProUGUI _enemyName;
@@ -21,14 +30,16 @@ public class CombatUI : MonoBehaviour
 
     private CombatUnitSO _player;
     private CombatUnitSO _enemy;
+    private InventorySO _playerInventory;
 
-    public void SetupHUD(CombatUnitSO player, CombatUnitSO enemy, int level, int gold)
+    public void SetupHUD(CombatUnitSO player, CombatUnitSO enemy, InventorySO playerInventory, int level, int gold)
     {
         this._player = player;
         this._enemy = enemy;
 
         this._levelText.text = "Level: " + level.ToString();
         this._goldText.text = "Gold: " + gold.ToString();
+        this._playerInventory = playerInventory;
 
         this._playerName.text = _player.unitName;
         this._playerHP.minValue = 0;
@@ -37,6 +48,30 @@ public class CombatUI : MonoBehaviour
         this._enemyName.text = _enemy.unitName;
         this._enemyHP.minValue = 0;
         this._enemyHP.maxValue = _enemy.maxHP;
+
+        if(this._playerInventory.weapons.Count > 0)
+        {
+            var firstWeapon = playerInventory.weapons[0];
+            this.firstWeaponImage.sprite = firstWeapon.icon;
+            this.firstWeaponImage.color = Color.white;
+        }
+        else
+        {
+            this.firstWeaponImage.sprite = null;
+            this.firstWeaponImage.color = Color.clear;
+        }
+
+        if (this._playerInventory.weapons.Count > 1)
+        {
+            var secondWeapon = playerInventory.weapons[1];
+            this.secondWeaponImage.sprite = secondWeapon.icon;
+            this.secondWeaponImage.color = Color.white;
+        }
+        else
+        {
+            this.secondWeaponImage.sprite = null;
+            this.secondWeaponImage.color = Color.clear;
+        }
 
     }
 
@@ -97,5 +132,74 @@ public class CombatUI : MonoBehaviour
         {
             this._enemyHP.value = this._enemy.currentHP;
         }
+
+        if (this._playerInventory != null)
+        {
+            if (this._playerInventory.consumables.Count > 0)
+            {
+                var firstConsumable = this._playerInventory.consumables[0];
+                this.firstConsumableImage.sprite = firstConsumable.item.icon;
+                this.firstConsumableImage.color = Color.white;
+                this.firstConsumableAmountText.text = firstConsumable.amount.ToString();
+            }
+            else
+            {
+                this.firstConsumableImage.sprite = null;
+                this.firstConsumableImage.color = Color.clear;
+                this.firstConsumableAmountText.text = "";
+            }
+
+            if (this._playerInventory.consumables.Count > 1)
+            {
+                var secondConsumable = this._playerInventory.consumables[1];
+                this.secondConsumableImage.sprite = secondConsumable.item.icon;
+                this.secondConsumableImage.color = Color.white;
+                this.secondConsumableAmountText.text = secondConsumable.amount.ToString();
+            }
+            else
+            {
+                this.secondConsumableImage.sprite = null;
+                this.secondConsumableImage.color = Color.clear;
+                this.secondConsumableAmountText.text = "";
+            }
+        }
+    }
+
+    public IEnumerator SpawnPlayerAnimation(Transform player)
+    {
+        player.localScale = Vector3.zero;
+
+        while (player.localScale.x < 1)
+        {
+            player.localScale += new Vector3(0.1f, 0.1f, 0.1f);
+            yield return new WaitForSeconds(0.05f);
+        }
+
+    }
+
+    public IEnumerator SpawnEnemyAnimation(Transform enemy)
+    {
+        enemy.localScale = Vector3.zero;
+
+        while (enemy.localScale.x < 1)
+        {
+            enemy.localScale += new Vector3(0.1f, 0.1f, 0.1f);
+            yield return new WaitForSeconds(0.05f);
+        }
+
+    }
+
+    public IEnumerator AttackAnimation(Transform attacker, Transform target)
+    {
+        var initialPosition = attacker.position;
+
+        //while (Vector3.Distance(attacker.position, target.position) > 0.2f)
+        //{
+        //    //
+        //    //Create movement to the target
+        //    //
+        //}
+
+        yield return null;
     }
 }

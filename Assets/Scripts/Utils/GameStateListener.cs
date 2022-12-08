@@ -20,6 +20,7 @@ public class GameStateListener : MonoBehaviour
     public UnityEvent onPauseState;
     public UnityEvent onDialogueState;
     public UnityEvent onCombatState;
+    public UnityEvent onShoppingState;
 
     private void OnEnable()
     {
@@ -85,5 +86,9 @@ public class GameStateListener : MonoBehaviour
             this.onCombatState.Invoke();
         }
 
+        if (newGameState.stateName == "Shopping" && this.onShoppingState != null)
+        {
+            this.onShoppingState.Invoke();
+        }
     }
 }

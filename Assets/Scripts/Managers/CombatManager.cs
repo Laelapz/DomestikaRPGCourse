@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum CombatStates
@@ -49,6 +48,7 @@ public class CombatManager : MonoBehaviour
         GameObject playerGO = Instantiate(this._request.player.unitPrefab, this._request.playerPosition.position, Quaternion.identity);
         playerGO.transform.parent = request.playerPosition;
 
+        StartCoroutine(this.combatUI.SpawnPlayerAnimation(this._request.playerPosition));
         StartCoroutine(StartCombat());
     }
 
@@ -65,33 +65,46 @@ public class CombatManager : MonoBehaviour
         StartCoroutine(StartCombat());
     }
 
-    public void OnPlayerAttack()
+    public void OnPlayerAttack(int inventoryItemId)
     {
         if (_currentState != CombatStates.PLAYERTURN) return;
 
-        this._request.player.AttackUnit(_currentEnemy);
+        if(inventoryItemId == 0 || inventoryItemId == 1)
+        {
+            if (this._request.player.inventory.weapons.Count > inventoryItemId)
+            {
+                var usedWeapon = this._request.player.inventory.weapons[inventoryItemId];
+                StartCoroutine(this.combatUI.AttackAnimation(this._request.playerPosition, this._request.enemyPosition));
+                this._request.player.AttackUnit(_currentEnemy, usedWeapon);
 
-        if(this._currentEnemy.currentHP <= 0)
-        {
-            StartCoroutine(CombatWon());
+                Debug.Log(_currentEnemy.currentHP);
+                if (this._currentEnemy.currentHP <= 0)
+                {
+                    StartCoroutine(CombatWon());
+                }
+                else
+                {
+                    StartCoroutine(EnemyTurn());
+                }
+            }
         }
-        else
+        else if (inventoryItemId == 2 || inventoryItemId == 3)
         {
+            inventoryItemId = inventoryItemId % 2;
+            
+            if(this._request.player.inventory.consumables.Count > inventoryItemId)
+            {
+                var usedConsumable = this._request.player.inventory.consumables[inventoryItemId];
+                this._request.player.Heal(usedConsumable.item.healPower);
+                this._request.player.inventory.RemoveConsumable(usedConsumable.item);
+            }
+
             StartCoroutine(EnemyTurn());
         }
+
     }
 
-    public void OnPlayerHeal()
-    {
-        if (_currentState != CombatStates.PLAYERTURN) return;
-
-        this._request.player.Heal(_request.player.healingPower);
-
-        StartCoroutine(EnemyTurn());
-    }
-
-
-        private IEnumerator StartCombat()
+    private IEnumerator StartCombat()
     {
         this._currentState = CombatStates.START;
 
@@ -108,15 +121,15 @@ public class CombatManager : MonoBehaviour
         this._currentEnemyGO = Instantiate(this._currentEnemy.unitPrefab, this._request.enemyPosition.position, Quaternion.identity);
         this._currentEnemyGO.transform.parent = this._request.enemyPosition;
 
+        StartCoroutine(this.combatUI.SpawnEnemyAnimation(this._request.enemyPosition));
         this.combatUI.ResetHUD();
         this.combatUI.ShowCombatMenu();
-        this.combatUI.SetupHUD(this._request.player, this._currentEnemy, this._currentLevel, this._gold);
+        this.combatUI.SetupHUD(this._request.player, this._currentEnemy, this._request.player.inventory, this._currentLevel, this._gold);
         this.combatUI.SetInfoText(combatStartedInfoText);
 
         yield return new WaitForSeconds(timeBetweenActions);
 
         PlayerTurn();
-
     }
 
     private void PlayerTurn()
@@ -133,9 +146,14 @@ public class CombatManager : MonoBehaviour
         yield return new WaitForSeconds(timeBetweenActions);
 
         this.combatUI.SetInfoText(enemyAttackedInfoText);
-        this._currentEnemy.AttackUnit(this._request.player);
 
-        if(this._request.player.currentHP <= 0)
+        var usedWeapon = _currentEnemy.inventory.weapons[0];
+        //StartCoroutine(this.combatUI.AttackAnimation(this._request.enemyPosition, this._request.playerPosition));
+        this._currentEnemy.AttackUnit(this._request.player, usedWeapon);
+
+        yield return new WaitForSeconds(timeBetweenActions);
+
+        if (this._request.player.currentHP <= 0)
         {
             CombatLost();
         }
@@ -167,14 +185,15 @@ public class CombatManager : MonoBehaviour
         this.combatUI.ShowLostMenu();
 
         this.ResetEnemyHPToBase();
+    }
 
+    public void FinishCombat()
+    {
+        this._request.player.inventory.AddGold(this._gold);
     }
 
     private void ResetEnemyHPToBase()
     {
         this._currentEnemy.maxHP = this._currentEnemy.baseHP;
     }
-
-
-
 }

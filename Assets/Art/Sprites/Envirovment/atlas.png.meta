@@ -3,7 +3,7 @@ guid: 00d1c2ebf9901f44cb8bcceef1ed79a3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -617,7 +618,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -8, y: -8}
+        - {x: -8, y: 8}
+        - {x: 8, y: 8}
+        - {x: 8, y: -8}
       tessellationDetail: 0
       bones: []
       spriteID: 6ed14702e75117140b6520fa5dfc57c4
@@ -14864,7 +14869,7 @@ TextureImporter:
         width: 32
         height: 34
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -15243,10 +15248,10 @@ TextureImporter:
       atlas_433: -870504672
       atlas_627: -1557389258
       atlas_1: -635094290
-      atlas_352: -589215086
-      atlas_647: -1292027696
       atlas_21: 1126585249
       atlas_319: 954386622
+      atlas_647: -1292027696
+      atlas_352: -589215086
       atlas_667: -4436213
       atlas_266: -2597495
       atlas_237: -1715990131

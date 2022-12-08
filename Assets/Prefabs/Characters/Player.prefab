@@ -302,6 +302,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4843c27b499c8294c84eb59426a1cf2e, type: 2}
   - {fileID: 11400000, guid: 8204e3dae0fa34d4ebdaad0490c0e111, type: 2}
   - {fileID: 11400000, guid: f1f5a66fd9a545f428a28b250fa4af6c, type: 2}
+  - {fileID: 11400000, guid: 6c94b44b17f27994ba5fd0743a304c56, type: 2}
   onMainMenuState:
     m_PersistentCalls:
       m_Calls: []
@@ -315,6 +316,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onDialogueState:
+    m_PersistentCalls:
+      m_Calls: []
+  onCombatState:
+    m_PersistentCalls:
+      m_Calls: []
+  onShoppingState:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &5473000901343312085

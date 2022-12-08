@@ -9,22 +9,20 @@ public class CombatUnitSO : ScriptableObject
     public float maxHP;
     public float currentHP;
 
-
-    public float attackPower;
-    public float healingPower;
-
     public GameObject unitPrefab;
 
-    public void AttackUnit(CombatUnitSO other)
+    public InventorySO inventory;
+
+    public void AttackUnit(CombatUnitSO other, ItemWeaponSO weapon)
     {
-        other.TakeDamage(this.attackPower);
+        other.TakeDamage(weapon.attackPower);
     }
 
     public void TakeDamage(float damage)
     {
         this.currentHP -= damage;
 
-        if(this.currentHP < damage)
+        if(this.currentHP < 0)
         {
             this.currentHP = 0f;
         }

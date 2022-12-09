@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Town
   m_EditorClassIdentifier: 
   SceneName: Town
+  sceneMusic: {fileID: 8300000, guid: e20e0336d6cfed24194c18d9afcdefff, type: 3}

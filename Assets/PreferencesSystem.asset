@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ca79a58003056341b2f9ecab18b958f, type: 3}
-  m_Name: House
+  m_Script: {fileID: 11500000, guid: 651ac90b3e728c0448a1c3c7aba080b9, type: 3}
+  m_Name: PreferencesSystem
   m_EditorClassIdentifier: 
-  SceneName: House
-  sceneMusic: {fileID: 8300000, guid: e20e0336d6cfed24194c18d9afcdefff, type: 3}
+  volume: 0
+  mixer: {fileID: 24100000, guid: 28f0f81ed5fda5745b46772576e7aad9, type: 2}

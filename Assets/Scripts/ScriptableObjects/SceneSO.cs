@@ -5,4 +5,5 @@ public class SceneSO : ScriptableObject
 {
     [Header("Scene Information")]
     public string SceneName;
+    public AudioClip sceneMusic;
 }

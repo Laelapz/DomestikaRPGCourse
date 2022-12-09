@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Combat
   m_EditorClassIdentifier: 
   SceneName: Combat
+  sceneMusic: {fileID: 8300000, guid: e5097e2bc9e8dfc44abe3de534c8f614, type: 3}

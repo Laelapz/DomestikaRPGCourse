@@ -32,6 +32,12 @@ public class CombatUI : MonoBehaviour
     private CombatUnitSO _enemy;
     private InventorySO _playerInventory;
 
+    private bool _attacking;
+    private bool _returning;
+    private Vector3 _initialPos;
+    private Transform _attacker;
+    private Transform _target;
+
     public void SetupHUD(CombatUnitSO player, CombatUnitSO enemy, InventorySO playerInventory, int level, int gold)
     {
         this._player = player;
@@ -191,15 +197,20 @@ public class CombatUI : MonoBehaviour
 
     public IEnumerator AttackAnimation(Transform attacker, Transform target)
     {
-        var initialPosition = attacker.position;
+        var initialPos = attacker.position;
 
-        //while (Vector3.Distance(attacker.position, target.position) > 0.2f)
-        //{
-        //    //
-        //    //Create movement to the target
-        //    //
-        //}
+        while (Vector3.Distance(attacker.position, target.position) > 0.5f)
+        {
+            attacker.position = Vector3.MoveTowards(attacker.position, target.position, 20 * Time.deltaTime);
+            yield return null;
+        }
 
-        yield return null;
+        while (Vector3.Distance(attacker.position, initialPos) > 0.5f)
+        {
+            attacker.position = Vector3.MoveTowards(attacker.position, initialPos, 20 * Time.deltaTime);
+            yield return null;
+        }
+
+        yield return true;
     }
 }

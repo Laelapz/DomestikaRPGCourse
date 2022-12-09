@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewUnit", menuName = "Scriptable Objects/Combat/Unit")]
@@ -10,7 +11,7 @@ public class CombatUnitSO : ScriptableObject
     public float currentHP;
 
     public GameObject unitPrefab;
-
+    public Material unitMaterial;
     public InventorySO inventory;
 
     public void AttackUnit(CombatUnitSO other, ItemWeaponSO weapon)
@@ -46,5 +47,12 @@ public class CombatUnitSO : ScriptableObject
     private void OnDisable()
     {
         this.maxHP = this.baseHP;
+    }
+
+    public IEnumerator FlashHit()
+    {
+        unitMaterial.SetFloat("_IsActive", 1.0f);
+        yield return new WaitForSeconds(0.3f);
+        unitMaterial.SetFloat("_IsActive", 0.0f);
     }
 }

@@ -75,9 +75,10 @@ public class CombatManager : MonoBehaviour
             {
                 var usedWeapon = this._request.player.inventory.weapons[inventoryItemId];
                 StartCoroutine(this.combatUI.AttackAnimation(this._request.playerPosition, this._request.enemyPosition));
-                this._request.player.AttackUnit(_currentEnemy, usedWeapon);
 
-                Debug.Log(_currentEnemy.currentHP);
+                this._request.player.AttackUnit(_currentEnemy, usedWeapon);
+                StartCoroutine(this._currentEnemy.FlashHit());
+
                 if (this._currentEnemy.currentHP <= 0)
                 {
                     StartCoroutine(CombatWon());
@@ -143,13 +144,15 @@ public class CombatManager : MonoBehaviour
         this._currentState = CombatStates.ENEMYTURN;
         this.combatUI.SetInfoText(enemyTurnInfoText);
 
-        yield return new WaitForSeconds(timeBetweenActions);
+        yield return new WaitForSeconds(timeBetweenActions + 0.5f);
 
         this.combatUI.SetInfoText(enemyAttackedInfoText);
 
         var usedWeapon = _currentEnemy.inventory.weapons[0];
-        //StartCoroutine(this.combatUI.AttackAnimation(this._request.enemyPosition, this._request.playerPosition));
+        StartCoroutine(this.combatUI.AttackAnimation(this._request.enemyPosition, this._request.playerPosition));
+
         this._currentEnemy.AttackUnit(this._request.player, usedWeapon);
+        StartCoroutine(this._request.player.FlashHit());
 
         yield return new WaitForSeconds(timeBetweenActions);
 

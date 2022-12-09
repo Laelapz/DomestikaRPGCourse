@@ -17,4 +17,5 @@ MonoBehaviour:
   maxHP: 100
   currentHP: 100
   unitPrefab: {fileID: 4575806747989124955, guid: c092aaf46eadd66458320bff29ddc9f3, type: 3}
+  unitMaterial: {fileID: 2100000, guid: 35176c1465853f84291bf2196e9861ef, type: 2}
   inventory: {fileID: 11400000, guid: ae95b8b7e3ccddf4c918d6844323906e, type: 2}

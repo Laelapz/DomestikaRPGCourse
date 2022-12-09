@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using ScriptableObjectArchitecture;
 using UnityEngine;
 
 public class ShopTrigger : MonoBehaviour
@@ -7,12 +6,13 @@ public class ShopTrigger : MonoBehaviour
     [Header("Configuration")]
     public InventorySO shopInventory;
 
-    //[Header("Broadcasting Events")]
-    //public InventorySOGameEvent shopRequestEvent;
+    [Header("Broadcasting Events")]
+    public InventorySOGameEvent shopRequestEvent;
 
 
     public void TriggerShop()
     {
-        //this.shopRequestEvent.Raise(this.shopInventory);
+        print("Trigger");
+        this.shopRequestEvent.Raise(this.shopInventory);
     }
 }

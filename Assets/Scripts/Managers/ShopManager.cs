@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using static UnityEditor.Progress;
 
 public class ShopManager : MonoBehaviour
 {
@@ -21,10 +22,11 @@ public class ShopManager : MonoBehaviour
 
     public void OpenShop(InventorySO shopInventory)
     {
-        this._shopInventory = shopInventory;
 
-        if (this._shopInventory == null)
+        if (this._shopInventory != null)
             return;
+
+        this._shopInventory = shopInventory;
 
         this.shopUI.SetupHUD(this._shopInventory, this.weaponPrices, this.consumablePrices, this.playerInventory);
 
@@ -46,11 +48,11 @@ public class ShopManager : MonoBehaviour
         if(itemId == 0 || itemId == 1)
         {
             var itemPrice = this.weaponPrices[itemId];
+            var item = this._shopInventory.weapons[itemId];
 
-            if (this.playerInventory.gold < itemPrice)
+            if (this.playerInventory.gold < itemPrice || this.playerInventory.weapons.Contains(item))
                 return;
 
-            var item = this._shopInventory.weapons[itemId];
             this.playerInventory.AddWeapon(item);
             this.playerInventory.RemoveGold(itemPrice);
         }
@@ -58,11 +60,11 @@ public class ShopManager : MonoBehaviour
         {
             var consumableIndex = itemId % 2;
             var itemPrice = this.consumablePrices[consumableIndex];
+            var shopItem = this._shopInventory.consumables[consumableIndex];
 
-            if (this.playerInventory.gold < itemPrice)
+            if (this.playerInventory.gold < itemPrice || this.playerInventory.consumables.Contains(shopItem))
                 return;
 
-            var shopItem = this._shopInventory.consumables[consumableIndex];
             this.playerInventory.AddConsumable(shopItem.item);
             this.playerInventory.RemoveGold(itemPrice);
             this._shopInventory.RemoveConsumable(shopItem.item);

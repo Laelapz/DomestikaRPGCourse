@@ -11,11 +11,6 @@ public class PlayerController : MonoBehaviour
     
     private Vector2 _movementInput;
 
-    private void Awake()
-    {
-        
-    }
-
     private void FixedUpdate()
     {
         _rigidbody2D.velocity = _movementInput * speed;
